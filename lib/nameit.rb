@@ -1,12 +1,19 @@
 # -*- encoding: utf-8 -*-
 
 require "nameit/version"
+require "securerandom"
 
 class Nameit
 
+  class Random
+
+    def rand(n = 0)
+      SecureRandom.random_number(n)
+    end
+  end
+
   def initialize(options = {})
-    @sample_opts = Hash.new
-    @sample_opts[:random] = options.fetch(:random) unless options[:random].nil?
+    @random = options.fetch(:random, ::Nameit::Random.new)
     @number = options.fetch(:number, false)
     @max_number = [options.fetch(:max_number, 999), 1].max
   end
@@ -23,7 +30,7 @@ class Nameit
 
   private
 
-  attr_reader :max_number, :number, :sample_opts
+  attr_reader :max_number, :number, :random
 
   def adjectives
     @adjectives ||= IO.readlines(data_file("nameit-adjectives.txt"))
@@ -38,14 +45,14 @@ class Nameit
   end
 
   def random_adjective
-    adjectives.sample(1, sample_opts).first.chomp
+    adjectives[random.rand(adjectives.size)].chomp
   end
 
   def random_noun
-    nouns.sample(1, sample_opts).first.chomp
+    nouns[random.rand(nouns.size)].chomp
   end
 
   def random_number
-    "%0#{(Math.log10(max_number) + 1).to_i}d" % rand(max_number)
+    "%0#{(Math.log10(max_number) + 1).to_i}d" % random.rand(max_number)
   end
 end
