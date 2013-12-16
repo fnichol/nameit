@@ -2,39 +2,36 @@
 
 $:.unshift File.join(File.dirname(__FILE__), %w{.. lib})
 require 'nameit'
+require 'optparse'
 
-def usage
-  <<-USAGE.gsub(/^ {4}/, '')
+this_many = 1
+number = false
 
-    Usage
-
-      nameit [<action>|<times>]
-
-    Actions
-
-      help    (-h)  - Display CLI help (this output)
-      version (-v)  - Display Namit version
-
-  USAGE
-end
-
-abort usage if ARGV.size > 1
-
-action = ARGV.shift || 1
-
-case action
-when "help", "-h"
-  puts usage
-when "version", "-v"
-  puts "Nameit #{Nameit::VERSION}"
-else
-  begin
-    this_many = Integer(action)
-  rescue ArgumentError
-    $stderr.puts ">>>> Error parsing `#{action}'"
-    abort usage
+ARGV.options do |opts|
+  opts.banner = "Usage: nameit [options] [NUMBER]"
+  opts.on("-n", "--[no-]number", "Add random number to name(s)") do |o|
+    number = o
   end
+  opts.on_tail("-h", "--help", "Display CLI help (this output)") do |o|
+    puts opts.help
+    exit
+  end
+  opts.on_tail("-v", "--version", "Display Nameit version") do |o|
+    puts "Nameit #{Nameit::VERSION}"
+    exit
+  end
+  opts.parse!
 
-  nameit = Nameit.new
-  this_many.times.each { puts nameit.generate }
+  ($stderr.puts ">>>> Invalid arguments"; abort opts.help) if ARGV.size > 1
+
+  this_many = ARGV.shift unless ARGV.empty?
+  begin
+    this_many = Integer(this_many)
+  rescue ArgumentError
+    $stderr.puts ">>>> Error parsing `#{this_many}'"
+    abort opts.help
+  end
 end
+
+nameit = Nameit.new(:number => number)
+this_many.times.each { puts nameit.generate }
