@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Nameit::VERSION
   spec.authors       = ["Fletcher Nichol"]
   spec.email         = ["fnichol@nichol.ca"]
-  spec.description   = %q{Nameit is a small zero-dependency library and tool that helps you generate a random name for a project, database, session--you decide. You get glorious - style names such as "pushy-clock" and "lovely-ducks" or ask for a random number on the end to give you names like "numberless-cactus-123" and "superb-shoes-915".}
+  spec.description   = %q{Nameit is a small zero-dependency library and tool that helps you generate a random name for a project, database, session--you decide. You get glorious adjective-noun style names such as "pushy-clock" and "lovely-ducks" or ask for a random number on the end to give you names like "numberless-cactus-123" and "superb-shoes-915".}
   spec.summary       = %q{Give it a name, why dont'cha?}
   spec.homepage      = "http://fnichol.github.com/nameit"
   spec.license       = "MIT"

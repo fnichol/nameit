@@ -5,7 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/fnichol/nameit.png)](https://codeclimate.com/github/fnichol/nameit)
 [![Dependency Status](https://gemnasium.com/fnichol/nameit.png)](https://gemnasium.com/fnichol/nameit)
 
-Nameit is a small zero-dependency library and tool that helps you generate a random name for a project, database, session--you decide. You get glorious **<adjective>-<noun>** style names such as **"pushy-clock"** and **"lovely-ducks"** or ask for a random number on the end to give you names like **"numberless-cactus-123"** and **"superb-shoes-915"**.
+Nameit is a small zero-dependency library and tool that helps you generate a random name for a project, database, session--you decide. You get glorious **adjective-noun** style names such as **"pushy-clock"** and **"lovely-ducks"** or ask for a random number on the end to give you names like **"numberless-cactus-123"** and **"superb-shoes-915"**.
 
 * No dependencies
 * Runs on all the Ruby implementations
