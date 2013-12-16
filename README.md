@@ -40,6 +40,8 @@ abhorrent-flowers
 
 ### <a name="usage-ruby"></a> Ruby Library
 
+Use it with a class method for a quick one-offs:
+
 ```ruby
 require 'nameit'
 
@@ -49,6 +51,18 @@ Nameit.generate
 # => "dazzling-comb"
 
 3.times.map { Nameit.generate }
+# => ["ethereal-music", "historical-argument", "recondite-pear"]
+
+```
+
+Or for peppier performance (to save on re-reading the data sources), use a `Nameit` instance:
+
+```ruby
+require 'nameit'
+
+nameit = Nameit.new
+
+3.times.map { nameit.generate }
 # => ["ethereal-music", "historical-argument", "recondite-pear"]
 ```
 
