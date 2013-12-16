@@ -50,9 +50,8 @@ Nameit.generate
 Nameit.generate
 # => "dazzling-comb"
 
-3.times.map { Nameit.generate }
-# => ["ethereal-music", "historical-argument", "recondite-pear"]
-
+Nameit.generate(number: true)
+# => "blushing-camera-632"
 ```
 
 Or for peppier performance (to save on re-reading the data sources), use a `Nameit` instance:
@@ -64,6 +63,11 @@ nameit = Nameit.new
 
 3.times.map { nameit.generate }
 # => ["ethereal-music", "historical-argument", "recondite-pear"]
+
+nameit = Nameit.new(number: true)
+
+2.times.map { nameit.generate }
+# => ["peaceful-book-260", "synonymous-lizards-501"]
 ```
 
 ## <a name="development"></a> Development
