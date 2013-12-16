@@ -36,6 +36,10 @@ Nameit ships with the `nameit` command so you can get a shiny new name right fro
 ```sh
 $ nameit
 abhorrent-flowers
+$ nameit 3
+cowardly-pot
+quickest-sleep
+heartbreaking-lamp
 ```
 
 ### <a name="usage-ruby"></a> Ruby Library
