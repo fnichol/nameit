@@ -16,7 +16,7 @@ Nameit is a small zero-dependency library and tool that helps you generate a ran
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'namit'
+gem 'nameit'
 ```
 
 And then execute:
@@ -28,7 +28,7 @@ $ bundle
 Or install it yourself as:
 
 ```sh
-$ gem install namit
+$ gem install nameit
 ```
 
 ## <a name="usage"></a> Usage
