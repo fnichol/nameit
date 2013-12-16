@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Nameit by fnichol</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/fnichol/nameit">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/fnichol/nameit/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/fnichol/nameit/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Nameit</h1>
+          <p>Give it a name, why dont'cha?</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/fnichol">fnichol</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <p><a href="http://badge.fury.io/rb/nameit"><img src="https://badge.fury.io/rb/nameit.png" alt="Gem Version"></a>
+<a href="http://travis-ci.org/fnichol/nameit"><img src="https://secure.travis-ci.org/fnichol/nameit.png" alt="Build Status"></a>
+<a href="https://codeclimate.com/github/fnichol/nameit"><img src="https://codeclimate.com/github/fnichol/nameit.png" alt="Code Climate"></a>
+<a href="https://gemnasium.com/fnichol/nameit"><img src="https://gemnasium.com/fnichol/nameit.png" alt="Dependency Status"></a></p>
+
+<p>Nameit helps you generate a random name for a project, database, session, you decide. You get glorious <strong>-</strong> style names such as <strong>"pushy-clock"</strong> and <strong>"lovely-ducks"</strong> or ask for a random number on the end to give you names like <strong>"numberless-cactus-123"</strong> and <strong>"superb-shoes-915"</strong>.</p>
+
+<h2>
+<a name="-installation" class="anchor" href="#-installation"><span class="octicon octicon-link"></span></a><a name="installation"></a> Installation</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="n">gem</span> <span class="s1">'namit'</span>
+</pre></div>
+
+<p>And then execute:</p>
+
+<div class="highlight highlight-sh"><pre><span class="nv">$ </span>bundle
+</pre></div>
+
+<p>Or install it yourself as:</p>
+
+<div class="highlight highlight-sh"><pre><span class="nv">$ </span>gem install namit
+</pre></div>
+
+<h2>
+<a name="-usage" class="anchor" href="#-usage"><span class="octicon octicon-link"></span></a><a name="usage"></a> Usage</h2>
+
+<h3>
+<a name="-nameit-command" class="anchor" href="#-nameit-command"><span class="octicon octicon-link"></span></a><a name="usage-bin"></a> nameit Command</h3>
+
+<p>Nameit ships with the <code>nameit</code> command so you can get a shiny new name right from the command line:</p>
+
+<div class="highlight highlight-sh"><pre><span class="nv">$ </span>nameit
+abhorrent-flowers
+</pre></div>
+
+<h3>
+<a name="-ruby-library" class="anchor" href="#-ruby-library"><span class="octicon octicon-link"></span></a><a name="usage-ruby"></a> Ruby Library</h3>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s1">'nameit'</span>
+
+<span class="no">Nameit</span><span class="o">.</span><span class="n">generate</span>
+<span class="c1"># =&gt; "sassy-clocks"</span>
+<span class="no">Nameit</span><span class="o">.</span><span class="n">generate</span>
+<span class="c1"># =&gt; "dazzling-comb"</span>
+
+<span class="mi">3</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="no">Nameit</span><span class="o">.</span><span class="n">generate</span> <span class="p">}</span>
+<span class="c1"># =&gt; ["ethereal-music", "historical-argument", "recondite-pear"]</span>
+</pre></div>
+
+<h2>
+<a name="-development" class="anchor" href="#-development"><span class="octicon octicon-link"></span></a><a name="development"></a> Development</h2>
+
+<ul>
+<li>Source hosted at <a href="https://github.com/fnichol/nameit">GitHub</a>
+</li>
+<li>Report issues/questions/feature requests on <a href="https://github.com/fnichol/nameit/issues">GitHub Issues</a>
+</li>
+</ul><p>Pull requests are very welcome! Make sure your patches are well tested.
+Ideally create a topic branch for every separate change you make. For
+example:</p>
+
+<ol>
+<li>Fork the repo</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Added some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol><h2>
+<a name="-authors" class="anchor" href="#-authors"><span class="octicon octicon-link"></span></a><a name="authors"></a> Authors</h2>
+
+<p>Created and maintained by <a href="https://github.com/fnichol">Fletcher Nichol</a> (<a href="mailto:fnichol@nichol.ca">fnichol@nichol.ca</a>)</p>
+
+<h2>
+<a name="-license" class="anchor" href="#-license"><span class="octicon octicon-link"></span></a><a name="license"></a> License</h2>
+
+<p>MIT (see <a href="https://github.com/fnichol/nameit/blob/master/LICENSE.txt">LICENSE</a>)</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-29670723-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
