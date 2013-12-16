@@ -49,5 +49,20 @@ describe Nameit do
       nameit.generate.must_equal "ambiguous-ball"
       nameit.generate.must_equal "blue-book"
     end
+
+    it "returns random name with random number" do
+      nameit = Nameit.new(:random => UnRandom, :number => true)
+      nameit.stub(:rand, 67) do
+        nameit.generate.must_equal "ambiguous-ball-067"
+      end
+    end
+
+    it "return random name with a smaller zero-padded number" do
+      nameit = Nameit.new(
+        :random => UnRandom, :number => true, :max_number => 99)
+      nameit.stub(:rand, 2) do
+        nameit.generate.must_equal "ambiguous-ball-02"
+      end
+    end
   end
 end
