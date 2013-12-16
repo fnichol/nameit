@@ -43,9 +43,14 @@
 <a href="https://codeclimate.com/github/fnichol/nameit"><img src="https://codeclimate.com/github/fnichol/nameit.png" alt="Code Climate"></a>
 <a href="https://gemnasium.com/fnichol/nameit"><img src="https://gemnasium.com/fnichol/nameit.png" alt="Dependency Status"></a></p>
 
-<p>Nameit helps you generate a random name for a project, database, session, you decide. You get glorious <strong>-</strong> style names such as <strong>"pushy-clock"</strong> and <strong>"lovely-ducks"</strong> or ask for a random number on the end to give you names like <strong>"numberless-cactus-123"</strong> and <strong>"superb-shoes-915"</strong>.</p>
+<p>Nameit is a small zero-dependency library and tool that helps you generate a random name for a project, database, session--you decide. You get glorious <strong>-</strong> style names such as <strong>"pushy-clock"</strong> and <strong>"lovely-ducks"</strong> or ask for a random number on the end to give you names like <strong>"numberless-cactus-123"</strong> and <strong>"superb-shoes-915"</strong>.</p>
 
-<h2>
+<ul>
+<li>No dependencies</li>
+<li>Runs on all the Ruby implementations</li>
+<li>Uses <code>SecureRandom</code>
+</li>
+</ul><h2>
 <a name="-installation" class="anchor" href="#-installation"><span class="octicon octicon-link"></span></a><a name="installation"></a> Installation</h2>
 
 <p>Add this line to your application's Gemfile:</p>
@@ -73,10 +78,16 @@
 
 <div class="highlight highlight-sh"><pre><span class="nv">$ </span>nameit
 abhorrent-flowers
+<span class="nv">$ </span>nameit 3
+cowardly-pot
+quickest-sleep
+heartbreaking-lamp
 </pre></div>
 
 <h3>
 <a name="-ruby-library" class="anchor" href="#-ruby-library"><span class="octicon octicon-link"></span></a><a name="usage-ruby"></a> Ruby Library</h3>
+
+<p>Use it with a class method for a quick one-offs:</p>
 
 <div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s1">'nameit'</span>
 
@@ -85,8 +96,23 @@ abhorrent-flowers
 <span class="no">Nameit</span><span class="o">.</span><span class="n">generate</span>
 <span class="c1"># =&gt; "dazzling-comb"</span>
 
-<span class="mi">3</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="no">Nameit</span><span class="o">.</span><span class="n">generate</span> <span class="p">}</span>
+<span class="no">Nameit</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="ss">number</span><span class="p">:</span> <span class="kp">true</span><span class="p">)</span>
+<span class="c1"># =&gt; "blushing-camera-632"</span>
+</pre></div>
+
+<p>Or for peppier performance (to save on re-reading the data sources), use a <code>Nameit</code> instance:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s1">'nameit'</span>
+
+<span class="n">nameit</span> <span class="o">=</span> <span class="no">Nameit</span><span class="o">.</span><span class="n">new</span>
+
+<span class="mi">3</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">nameit</span><span class="o">.</span><span class="n">generate</span> <span class="p">}</span>
 <span class="c1"># =&gt; ["ethereal-music", "historical-argument", "recondite-pear"]</span>
+
+<span class="n">nameit</span> <span class="o">=</span> <span class="no">Nameit</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">number</span><span class="p">:</span> <span class="kp">true</span><span class="p">)</span>
+
+<span class="mi">2</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">nameit</span><span class="o">.</span><span class="n">generate</span> <span class="p">}</span>
+<span class="c1"># =&gt; ["peaceful-book-260", "synonymous-lizards-501"]</span>
 </pre></div>
 
 <h2>
