@@ -1,3 +1,40 @@
 #!/usr/bin/env ruby
 
+$:.unshift File.join(File.dirname(__FILE__), %w{.. lib})
 require 'nameit'
+
+def usage
+  <<-USAGE.gsub(/^ {4}/, '')
+
+    Usage
+
+      nameit [<action>|<times>]
+
+    Actions
+
+      help    (-h)  - Display CLI help (this output)
+      version (-v)  - Display Namit version
+
+  USAGE
+end
+
+abort usage if ARGV.size > 1
+
+action = ARGV.shift || 1
+
+case action
+when "help", "-h"
+  puts usage
+when "version", "-v"
+  puts "Nameit #{Nameit::VERSION}"
+else
+  begin
+    this_many = Integer(action)
+  rescue ArgumentError
+    $stderr.puts ">>>> Error parsing `#{action}'"
+    abort usage
+  end
+
+  nameit = Nameit.new
+  this_many.times.each { puts nameit.generate }
+end
